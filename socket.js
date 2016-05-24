@@ -1,4 +1,4 @@
-var child = require('child_process').exec('START ./Redis/redis-server.exe')
+var child = require('child_process').exec('START ./Redis/redis-server.exe ./Redis/redis.windows.conf')
 child.stdout.pipe(process.stdout)
 child.on('exit', function() {
   
@@ -36,6 +36,6 @@ redis.on('pmessage', function(subscribed, channel, message) {
     console.log(message.data.data.message);
     io.emit(message.data.data.channel, message);
 });
-//channels being used: message, kanban, user, typing, chat-misc
+//channels being used: message, kanban, user, typing, chat-misc, lote-progress
 
 })
