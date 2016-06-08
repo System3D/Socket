@@ -1,1 +1,1 @@
-node socket
+node socket -r
